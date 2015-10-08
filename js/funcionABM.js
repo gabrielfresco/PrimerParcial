@@ -11,7 +11,7 @@ function BorrarVOTO(idParametro)
 	});
 	funcionAjax.done(function(retorno){
 		Mostrar("MostarListado");
-		$("#informe").html("cantidad de eliminados "+ retorno);	
+		
 		
 	});
 	funcionAjax.fail(function(retorno){	
@@ -32,12 +32,14 @@ function EditarVOTO(idParametro)
 	funcionAjax.done(function(retorno){
 		
 		var voto =JSON.parse(retorno);	
+		console.log(voto);
+		alert(voto.dni);
 
 		$("#idVOTO").val(voto.id);
 		$("#dni").val(voto.dni); 
 		$("#provincia").val(voto.provincia);
-		$("#presidente").val(voto.presidente);
-		$("#sexo").val(voto.sexo);
+		// $("#presidente").val(voto.presidente);
+		// $("#sexo").val(voto.sexo);
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
@@ -49,9 +51,10 @@ function GuardarVOTO()
 { 
  		var id = $("#idVOTO").val();
  		var dni = $("#dni").val(); 
-		var provincia = $("#provincia").val(); //hace referencia al id del input
+		var provincia = $("#provincia").val(); 
 		var presidente = $("#presidente").val();
-		var sexo = $("#sexo").val();
+		var sexo = $("input[name=sexo]:checked").val();
+
 
 		var funcionAjax = $.ajax({	
 		url:"nexo.php", 

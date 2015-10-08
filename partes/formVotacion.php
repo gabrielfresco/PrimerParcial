@@ -21,8 +21,8 @@
 
 	</select><br>
 	
-	<input type="radio" name="sexo" id="sexo" value="Masculino">Masculino
-	<input type="radio" name="sexo" id="sexo" value="Femenino">Femenino <br><br>
+	<input type="radio" name="sexo" id="m" value="Masculino" checked="true">Masculino
+	<input type="radio" name="sexo" id="f" value="Femenino">Femenino <br><br>
 	 
    <input readonly type="hidden" id="idVOTO" class="form-control" >
 
