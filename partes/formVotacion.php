@@ -1,32 +1,35 @@
 <?php
-//session_start();
 
   if (isset($_SESSION['dni']))
   {
-    // echo "<section class='widget'><center><h2> Bienvenido: ".$_SESSION['dni']."</h2></center>"; //no puedo modificar si dejo esto
+    
        
 ?>
 
 <form  class="form-votacion" id="principal" onsubmit="GuardarVOTO();return false">
-   
-  <label>Voto</label><br>
+  <label>Voto</label></br>
+  <table class="table">   
 
-	<input type="text" name="provincia" id="provincia" placeholder="Provincia"><br>
+	<tr><td><input type="text" name="provincia" id="provincia" placeholder="Provincia" required></td></tr>
 
-	<select name="presidente" id="presidente" required>
+	<tr></td><select name="presidente" id="presidente" required>   
 
     <option value="Scioli">Scioli</option>
-    <option value="lal">Lala</option>
-    <option value="mercedes">Mercedes</option>
+    <option value="Massa">Massa</option>
+    <option value="Macri">Macri</option>
 
-	</select><br>
+	</select></td></tr>
 	
-	<input type="radio" name="sexo" id="m" value="Masculino" checked="true">Masculino
-	<input type="radio" name="sexo" id="f" value="Femenino">Femenino <br><br>
+	<tr><td><input type="radio" name="sexo" id="m" value="Masculino" checked="true">Masculino
+	<input type="radio" name="sexo" id="f" value="Femenino">Femenino </td></tr>
+ <tr><td> <input type="text" name="localidad" id="localidad" placeholder="localidad"></td></tr>
+ <tr><td><input type="text" name="direccion" id="direccion" placeholder="direccion"></td></tr>
+</table>
 	 
    <input readonly type="hidden" id="idVOTO" class="form-control" >
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Guardar</button> 
+
 
 </form>
 

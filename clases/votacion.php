@@ -7,6 +7,8 @@ class votacion
   	public $presidente;
   	public $sexo;
   	public $id;
+  	public $direccion;
+  	public $localidad;
 
 	public static function TraerVotos() 
 	{
@@ -20,8 +22,8 @@ class votacion
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta//("CALL Alta()");
-															("INSERT into votos (dni,provincia,presidente,sexo)
-															values('$this->dni','$this->provincia','$this->presidente','$this->sexo')");
+															("INSERT into votos (dni,provincia,presidente,sexo,localidad,direccion)
+															values('$this->dni','$this->provincia','$this->presidente','$this->sexo', '$this->localidad', '$this->direccion')");
 			$consulta->execute();
 			return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
@@ -49,13 +51,13 @@ class votacion
 	public function ModificarVoto()
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("CALL Modificacion()");
-		 //  ( "UPDATE votos 
-			// set dni='$this->dni',
-			// provincia='$this->provincia',
-			// presidente='$this->presidente',
-			// sexo='$this->sexo'
-			// WHERE id='$this->id' "); 
+		$consulta =$objetoAccesoDato->RetornarConsulta
+		  ( "UPDATE votos 
+			set dni='$this->dni',
+			provincia='$this->provincia',
+			presidente='$this->presidente',
+			sexo='$this->sexo'
+			WHERE id='$this->id' "); 
 		return $consulta->execute();
 	}
 

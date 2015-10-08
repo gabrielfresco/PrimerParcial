@@ -18,6 +18,10 @@ switch ($queHago) {
 			include("partes/formIngreso.php");
 		break;
 
+	case 'VerEnMapa':
+			include("partes/formMapaGoogle.php");
+		break;
+
 	case 'BorrarVOTO':
 			$voto = new votacion();
 			$voto->id=$_POST['id'];
@@ -27,11 +31,13 @@ switch ($queHago) {
 
 	case 'GuardarVOTO':
 			$voto = new votacion();
-			$voto->dni = $_SESSION['dni']; //ver no me guarda el dni
+			$voto->dni = $_SESSION['dni']; 
 			$voto->provincia = $_POST['provincia'];
 			$voto->presidente = $_POST['presidente'];
 			$voto->sexo = $_POST['sexo']; 
 			$voto->id = $_POST['id'];
+			$voto->localidad = $_POST['localidad'];
+			$voto->direccion = $_POST['direccion'];
 			
 			if ($_POST['id']>0)
 			{
@@ -46,7 +52,7 @@ switch ($queHago) {
 	
 	case 'TraerVOTO':
 
-			$voto = votacion::TraerUnVoto($_POST['id']); //TraerVotos();		
+			$voto = votacion::TraerUnVoto($_POST['id']); 		
 			echo json_encode($voto);
 			
 		break;

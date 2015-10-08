@@ -21,6 +21,7 @@ function BorrarVOTO(idParametro)
 
 function EditarVOTO(idParametro)
 {
+	Mostrar("MostrarVotacion");
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -30,21 +31,19 @@ function EditarVOTO(idParametro)
 		}
 	});
 	funcionAjax.done(function(retorno){
-		
+			
 		var voto =JSON.parse(retorno);	
-		console.log(voto);
-		alert(voto.dni);
-
+		
 		$("#idVOTO").val(voto.id);
 		$("#dni").val(voto.dni); 
 		$("#provincia").val(voto.provincia);
-		// $("#presidente").val(voto.presidente);
+		$("#presidente").val(voto.presidente);
 		// $("#sexo").val(voto.sexo);
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
 	});	
-	Mostrar("MostrarVotacion");
+
 }
 
 function GuardarVOTO()
@@ -54,6 +53,8 @@ function GuardarVOTO()
 		var provincia = $("#provincia").val(); 
 		var presidente = $("#presidente").val();
 		var sexo = $("input[name=sexo]:checked").val();
+		var localidad = $("#localidad").val(); 
+		var direccion = $("#direccion").val();
 
 
 		var funcionAjax = $.ajax({	
@@ -66,7 +67,9 @@ function GuardarVOTO()
 	    provincia:provincia,
 		presidente:presidente,
 		sexo:sexo,
-		id:id
+		id:id,
+		localidad:localidad,
+		direccion:direccion
 		}
 		
 	});

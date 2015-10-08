@@ -22,6 +22,12 @@
 <script type="text/javascript" src="js/funcionLogin.js"></script>
 <script type="text/javascript" src="js/funcionABM.js"></script>
 
+<!-- archivos para geolocalizacion -->
+
+<script type="text/javascript" src="js/funcionesMapa.js"></script>
+<script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
+<script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
+
 </head>
 
 <body>
